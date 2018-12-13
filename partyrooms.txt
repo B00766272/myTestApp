@@ -1,0 +1,48 @@
+class PartyRooms
+{
+    private String rooms;
+    private double capacity;
+	private String feature;
+	private boolean alcoholAllowed;
+
+    PartyRooms(String room,double capacity,String feature, boolean alcoholAllowed)
+    {
+        this.room = room;
+        this.capacity = capacity;
+		this.feature = feature;
+        this.alcoholAllowed = alcoholAllowed;
+     
+    }
+	
+	public String getRoom() {
+		return room;
+	}
+	
+	public void setRoom(String room) {
+		this.room = room;
+	}
+	
+	public double getCapacity() {
+		return capacity;
+	}
+	
+	public void setCapacity(Double capacity) {
+		this.capacity = capacity;
+	}
+	
+	public boolean isAlcoholAllowed() {
+		return alcoholAllowed;
+	}
+	
+	public void setAlcoholAllowed(boolean alcoholAllowed) {
+		this.alcoholAllowed = alcoholAllowed;
+	}
+	
+	public String getFeature() {
+		return feature;
+	}
+	
+	public void setFeature(String feature) {
+		this.feature = feature;
+	}
+}

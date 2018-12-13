@@ -1,0 +1,98 @@
+package com.allen;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
+/**
+ * This UI is the application entry point. A UI may either represent a browser window 
+ * (or tab) or some part of an HTML page where a Vaadin application is embedded.
+ * <p>
+ * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be 
+ * overridden to add component to the user interface and initialize non-component functionality.
+ */
+@Theme("mytheme")
+public class MyUI extends UI {
+
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
+        final VerticalLayout layout = new VerticalLayout();
+        
+        
+        final TextField name = new TextField();
+        name.setCaption("Type your firstname:");
+
+        final TextField name2 = new TextField();
+        name2.setCaption("Type in your lastname");
+
+
+
+        final TextField name3 = new TextField();
+        name3.setCaption("enter a value here:");
+     
+
+        final TextField name4 = new TextField();
+        name4.setCaption("enter another value here");
+
+    
+
+        Button button = new Button("Click Me");
+        Button button2 = new Button("Click this");
+        Button button3= new Button ("value2");
+        Button button4 = new Button ("value1");
+        button.addClickListener(e -> {
+            layout.addComponent(new Label("Thanks " + name.getValue() +  name2.getValue() 
+                  + ", it works!"));
+        });
+
+        button2.addClickListener(e -> {
+            layout.addComponents( button,button2,name,name2); 
+            Notification.show("Back to text1");  
+    
+
+       });
+
+       button.addClickListener(e -> {
+        layout.addComponents( button2,button, name,name2); 
+        Notification.show("Back to text2");  
+
+       });
+        
+        button3.addClickListener(e -> {
+            int x= Integer.parseInt(name3.getValue());
+            int y= Integer.parseInt(name4.getValue());
+            layout.addComponent(new Label(""+(x+y)));
+        
+
+
+    });
+        
+    button4.addClickListener(e -> {
+        layout.addComponent(new Label( name4.getValue()  +  name3.getValue() 
+    ));
+
+
+    
+       });
+
+       
+        
+        layout.addComponents(name,name2,name3, name4, button,button2,button3,button4);
+        
+        setContent(layout);
+    }
+
+    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+    public static class MyUIServlet extends VaadinServlet {
+    }
+}

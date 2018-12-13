@@ -1,0 +1,44 @@
+ddButton.addClickListener(e -> {
+            if(staff.getValue().length()==0){
+                Notification.show("Please add a value for Staff Number field");
+           
+            }
+            else{
+                if(name.getValue().length()==0){
+                    Notification.show("Please add a value for Staff Name field");
+                }
+                else{
+                    if(phone.getValue().length()==0){
+                        Notification.show("Please add a value for Staff Phone field");
+                    }
+                    else{
+            people.add(new Person(staff.getValue(),name.getValue(),phone.getValue()));
+            myGrid.removeAllColumns();
+            myGrid.setItems(people);
+            myGrid.addColumn(Person::getStaff).setCaption("Staff Number");
+            myGrid.addColumn(Person::getName).setCaption("Staff Name");
+            myGrid.addColumn(Person::getPhone).setCaption("Staff Phone");
+            }
+        }}
+
+
+
+Your party is not booked yet
+
+<strong>Your party is not booked yet</strong>
+
+
+
+
+
+
+
+
+
+=======\
+bookButton.addClickListener(e -> {
+           
+  //if room is not selected
+//<strong>Your party is not booked yet</strong>
+
+        });  

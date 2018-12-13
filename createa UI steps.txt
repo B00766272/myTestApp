@@ -1,0 +1,19 @@
+maven
+vaadin
+group id - com.allen
+artifact ID- elePhant
+Version 1.0
+package id -com.allen
+Yes
+mvn jetty:run
+
+
+
+setwidth- allows us to constrain
+setSpacing 
+
+TextField num4
+num4. setPlaceholder- ("gray txt inside the txt")
+
+
+contentmode.

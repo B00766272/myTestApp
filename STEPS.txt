@@ -1,0 +1,109 @@
+Step by step to create App
+
+Read the Instructions Carefully
+
+Create an App in Azure 
+Click Web App and add new service plan per exam instruction
+
+Make sure to click  Application settings : 
+Java Version Java 8
+Java Minor Version Newest
+java web container - Newest Jetty 9.3
+Click Save
+
+
+Create a new App on Maven (follow steps in creating MYUI and per exam instruction) and sync this 
+to Github -  https://github.com/COM673/COM673-B00766272
+
+
+-navigate to Visual code studio
+-command pallet
+-gitclone
+-paste in the repository  URL address from the git page browser
+-https://github.com/B00766272/myWebApp (example) 
+
+-set the location on your computer( desktop)
+-and open the repository
+-create the app ( use the step to createUI and per exam instructions)
+-DONOT forget to stop XAMPP services.
+- test and run mvn jetty:run
+
+- create a .sql file on note pad to create the table needed
+
+
+
+
+Create a Database on Azure ( follow exam instructions for db name and server)
+Select SQL Database
+Create a name
+Resource Group
+Select Source Group- Blank Database
+Server Name 
+North Europe
+Click on pricing tier > then select the Basic
+Collation as it is
+
+run the created .sql file 
+save this the prject 
+
+
+
+
+
+Once Created > Browse/OpenDatabase 
+Set the Firewall
+and get the connection string 
+
+Copy the block code to add to the pom xml
+
+<!-https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+	  <artifactId>mssql-jdbc</artifactId>
+	<version>6.4.0.jre8</version>
+
+
+
+Copy the connection string 
+navigate to Azure DB > click connection string>JDBC 
+
+
+navigate back to your Visual code and add this connection 
+string
+
+
+add the code Try..catch for vaadin
+
+write code within the try..catch when creating the grid from databse
+
+
+
+Don't forget to test 
+
+run jetty to test local host
+once confirm its running click clean
+click install
+
+then test it again locally
+
+once confirm
+transfer the war file via KUDO
+navigate to the app> advance tool> go
+then select cmd
+navigate to site
+drag and drop the file
+
+test the webapp from azure
+
+
+COMPILE, INSTALL, COMMIT, SUBMIT, MAKE SURE TO INCLUDE THE SQL FILE
+CHECK AND READ THE INSTRUCTION BEFORE SUBMITTING THE FINAL COMMIT
+
+
+
+
+
+
+
+
+
